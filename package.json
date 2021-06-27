@@ -1,0 +1,36 @@
+{
+  "bin": {
+    "iusllint": "dist/index.js"
+  },
+  "name": "iusllint",
+  "version": "1.0.0",
+  "description": "a",
+  "main": "src/index.ts",
+  "repository": "https://github.com/iuslkae/iusllint.git",
+  "author": "iuslkae",
+  "license": "UNLICENSED",
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "start": "nodemon --watch \"src/**\" --ext \"ts,json,env\" --ignore \"src/**/*.spec.ts\" --exec \"ts-node src/index.ts\"",
+    "build": "ttsc",
+    "try": "node dist/index.js "
+  },
+  "devDependencies": {
+    "@types/node": "15.12.5",
+    "@types/yargs": "17.0.0",
+    "@typescript-eslint/eslint-plugin": "4.28.0",
+    "@typescript-eslint/parser": "4.28.0",
+    "eslint": "7.29.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-prettier": "3.4.0",
+    "nodemon": "2.0.7",
+    "prettier": "2.3.2",
+    "ts-node": "10.0.0",
+    "ts-transformer-keys": "0.4.3",
+    "ttypescript": "1.5.12",
+    "typescript": "4.3.4"
+  },
+  "dependencies": {
+    "yargs": "17.0.1"
+  }
+}
