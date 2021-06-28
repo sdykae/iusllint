@@ -1,4 +1,13 @@
 # SHORT ONELINER FOR eslint prettier dependencies
+
+## USAGE
+```
+yarn dlx iusllint
+```
+```
+npx iusllint
+```
+
 ## ADD 6 DEV DEPENDENCIES TO YOUR CURRENT NPM PROJECT
 ```
 "devDependencies": {
