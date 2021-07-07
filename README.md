@@ -11,11 +11,11 @@ npx iusllint
 ### Options
 Generate typescript config file
 ```
-iusllint -t
+iusllint --t
 ```
 Generate typescript config file and installs TYPESCRIPT and Dev Node THINGS
 ```
-iusllint -ts
+iusllint --ts
 ```
 
 
