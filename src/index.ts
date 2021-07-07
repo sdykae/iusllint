@@ -108,7 +108,7 @@ const argv = yargs.command(
       if (exists(join(process.cwd(), 'package.json'))) {
         const rawJson = readFileSync('package.json', 'utf-8');
         const pkgJson: PackageJson = JSON.parse(rawJson);
-        if(!pkgJson.scripts) {
+        if (!pkgJson.scripts) {
           pkgJson.scripts = {};
         }
         pkgJson.scripts.start = start;
@@ -116,7 +116,7 @@ const argv = yargs.command(
         pkgJson.main = main;
         writeFileSync(
           join(process.cwd(), 'package.json'),
-          JSON.stringify(pkgJson),
+          JSON.stringify(pkgJson, null, 2),
         );
       }
     }
