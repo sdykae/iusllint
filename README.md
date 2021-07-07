@@ -1,6 +1,6 @@
 # SHORT ONELINER FOR eslint prettier dependencies
 
-## - USAGE
+## ⭐ USAGE
 ```
 yarn dlx iusllint
 ```
@@ -8,7 +8,7 @@ yarn dlx iusllint
 npx iusllint
 ```
 
-## - Options
+## 📺 Options
 Generate typescript config file
 ```
 iusllint --t
@@ -19,7 +19,7 @@ iusllint --ts
 ```
 
 
-## IUSLLINT INSTALLS 6 DEV DEPENDENCIES TO YOUR CURRENT NPM PROJECT
+## 🌻 IUSLLINT INSTALLS 6 DEV DEPENDENCIES TO YOUR CURRENT NPM PROJECT
 ```
 "devDependencies": {
   "@typescript-eslint/eslint-plugin": "4.28.0",
@@ -32,11 +32,15 @@ iusllint --ts
 ```
 
 
-# REPLICATION 13 DEV PACKAGES
+# 🔫USLLINT PROJECT USES 12 DEV PACKAGES AND 1 UTILITY
+
+12 Dev packages could be installed throught iusllint script.
 
 ## - TYPESCRIPT and Dev Node THINGS
 
-`yarn add -D typescript ttypescript ts-node nodemon ts-transformer-keys @types/node -E`
+```
+yarn add -D typescript ttypescript ts-node nodemon ts-transformer-keys @types/node -E
+```
 ### If --ts used, you could use the ts dev env like this:
 
 ```json
@@ -57,7 +61,7 @@ yarn add -D eslint eslint-config-prettier eslint-plugin-prettier prettier @types
 yarn add -D rimraf -E
 ```
 
-# REPLICATION 1 PACKAGE
+# ✨ IUSLLINT DEPENDENCY: 1 PACKAGE
 
 ```
 yarn add yargs -E
