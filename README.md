@@ -8,6 +8,17 @@ yarn dlx iusllint
 npx iusllint
 ```
 
+### Options
+Generate typescript config file
+```
+iusllint -t
+```
+Generate typescript config file and installs TYPESCRIPT and Dev Node THINGS
+```
+iusllint -ts
+```
+
+
 ## ADD 6 DEV DEPENDENCIES TO YOUR CURRENT NPM PROJECT
 ```
 "devDependencies": {
@@ -38,6 +49,6 @@ npx iusllint
 `
 yarn add yargs -E
 
-` `
+`
 yarn add -D @types/yargs -E
 `
