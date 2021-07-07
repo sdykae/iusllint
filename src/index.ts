@@ -1,4 +1,4 @@
-import yargs from 'yargs';
+import * as yargs from 'yargs';
 import { exec } from 'child_process';
 import { copyFileSync, accessSync, PathLike } from 'fs';
 import { join } from 'path';
