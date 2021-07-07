@@ -99,7 +99,7 @@ const argv = yargs.command('$0', 'the default command', (yargs) => {
             pkgJson.scripts.start = start;
             pkgJson.scripts.prebuild = prebuild;
             pkgJson.main = main;
-            fs_1.writeFileSync(path_1.join(process.cwd(), 'package.json'), JSON.stringify(pkgJson));
+            fs_1.writeFileSync(path_1.join(process.cwd(), 'package.json'), JSON.stringify(pkgJson, null, 2));
         }
     }
 }).argv;
