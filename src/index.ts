@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import * as yargs from 'yargs';
 import { exec } from 'child_process';
 import { promisify } from 'util';
