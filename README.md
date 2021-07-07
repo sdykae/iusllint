@@ -1,6 +1,6 @@
 # SHORT ONELINER FOR eslint prettier dependencies
 
-## USAGE
+## - USAGE
 ```
 yarn dlx iusllint
 ```
@@ -8,18 +8,18 @@ yarn dlx iusllint
 npx iusllint
 ```
 
-### Options
+## - Options
 Generate typescript config file
 ```
 iusllint --t
 ```
-Generate typescript config file and installs TYPESCRIPT and Dev Node THINGS
+Generate typescript config file and install TYPESCRIPT and Dev Node THINGS
 ```
 iusllint --ts
 ```
 
 
-## ADD 6 DEV DEPENDENCIES TO YOUR CURRENT NPM PROJECT
+## IUSLLINT INSTALLS 6 DEV DEPENDENCIES TO YOUR CURRENT NPM PROJECT
 ```
 "devDependencies": {
   "@typescript-eslint/eslint-plugin": "4.28.0",
@@ -30,25 +30,38 @@ iusllint --ts
   "prettier": "2.3.2"
 }
 ```
+
+
 # REPLICATION 13 DEV PACKAGES
 
-## TYPESCRIPT and Dev Node THINGS
+## - TYPESCRIPT and Dev Node THINGS
 
 `yarn add -D typescript ttypescript ts-node nodemon ts-transformer-keys @types/node -E`
+### If --ts used, you could use the ts dev env like this:
 
-## ESLINT PRETTIER
+```json
+{
+  "start": "nodemon --watch \"src/**\" --ext \"ts,json,env\" --ignore \"src/**/*.spec.ts\" --exec \"ts-node src/index.ts\""
+}
+```
 
-`yarn add -D eslint eslint-config-prettier eslint-plugin-prettier prettier @typescript-eslint/parser @typescript-eslint/eslint-plugin -E`
+## - ESLINT PRETTIER
 
-## Utilities
+```
+yarn add -D eslint eslint-config-prettier eslint-plugin-prettier prettier @typescript-eslint/parser @typescript-eslint/eslint-plugin -E
+```
 
-`yarn add -D rimraf -E`
+## - Utilities
+
+```
+yarn add -D rimraf -E
+```
 
 # REPLICATION 1 PACKAGE
 
-`
+```
 yarn add yargs -E
-
-`
+```
+```
 yarn add -D @types/yargs -E
-`
+```
