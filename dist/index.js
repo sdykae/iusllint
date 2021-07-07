@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const yargs_1 = require("yargs");
+const yargs = require("yargs");
 const child_process_1 = require("child_process");
 const fs_1 = require("fs");
 const path_1 = require("path");
@@ -27,7 +27,7 @@ const genFile = (file) => {
         fs_1.copyFileSync(require.resolve(`iusllint/lintfiles/${file}`), path_1.join(process.cwd(), file));
     }
 };
-const argv = yargs_1.default.command('$0', 'the default command', (yargs) => {
+const argv = yargs.command('$0', 'the default command', (yargs) => {
     return yargs
         .option('t', {
         alias: 'typescript',
