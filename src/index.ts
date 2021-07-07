@@ -2,7 +2,13 @@
 import * as yargs from 'yargs';
 import { exec } from 'child_process';
 import { promisify } from 'util';
-import { copyFileSync, accessSync, PathLike, readFileSync, read } from 'fs';
+import {
+  copyFileSync,
+  accessSync,
+  PathLike,
+  readFileSync,
+  writeFileSync,
+} from 'fs';
 import { join } from 'path';
 import { PackageJson } from 'type-fest';
 const asyncExec = promisify(exec);
@@ -20,10 +26,16 @@ enum LintFiles {
   prettierrc = '.prettierrc',
   tsconfig = 'tsconfig.json',
 }
-const command = `yarn add -D eslint eslint-config-prettier eslint-plugin-prettier prettier @typescript-eslint/parser @typescript-eslint/eslint-plugin -E`;
-const tCommand = `yarn add -D typescript ttypescript ts-node nodemon ts-transformer-keys @types/node -E`;
+
+const addD = `yarn add -D`;
+const lintPackages = `eslint eslint-config-prettier eslint-plugin-prettier prettier @typescript-eslint/parser @typescript-eslint/eslint-plugin`;
+const typescriptDevPackages = `typescript ttypescript ts-node nodemon ts-transformer-keys @types/node`;
+const utilyPackages = `rimraf`;
+const addOptions = `-E`;
+
 const start = `nodemon --watch \"src/**\" --ext \"ts,json,env\" --ignore \"src/**/*.spec.ts\" --exec \"ts-node src/index.ts\"`;
 const main = 'src/index.ts';
+const prebuild = 'rimraf dist';
 
 const genFile = (file: LintFiles): void => {
   if (!exists(join(process.cwd(), file))) {
@@ -57,33 +69,52 @@ const argv = yargs.command(
       tsc: {
         alias: 'tsdevfull',
         describe:
-          'generate aditional standard tsconfig.json and installs basic typescript dev env and sets pkg.json.start',
+          'generate aditional standard tsconfig.json and installs basic typescript dev env, utilities, and sets scripts',
         type: 'boolean',
       },
     });
   },
   async (argv) => {
-    console.log(command);
-    await asyncExec(command).then(console.log).catch(console.log);
-    genFile(LintFiles.eslintrc);
-    genFile(LintFiles.prettierrc);
+    if (Object.keys(argv).length === 2) {
+      const command = `${addD} ${lintPackages} ${addOptions}`;
+      console.log(command);
+      await asyncExec(command).then(console.log).catch(console.log);
+      genFile(LintFiles.eslintrc);
+      genFile(LintFiles.prettierrc);
+    }
     if (argv.t) {
+      const command = `${addD} ${lintPackages} ${addOptions}`;
+      console.log(command);
+      await asyncExec(command).then(console.log).catch(console.log);
+      genFile(LintFiles.eslintrc);
+      genFile(LintFiles.prettierrc);
       genFile(LintFiles.tsconfig);
     }
     if (argv.ts) {
+      const command = `${addD} ${lintPackages} ${typescriptDevPackages} ${addOptions}`;
+      console.log(command);
+      await asyncExec(command).then(console.log).catch(console.log);
+      genFile(LintFiles.eslintrc);
+      genFile(LintFiles.prettierrc);
       genFile(LintFiles.tsconfig);
-      console.log(tCommand);
-      await asyncExec(tCommand).then(console.log).catch(console.log);
     }
     if (argv.tsc) {
+      const command = `${addD} ${lintPackages} ${typescriptDevPackages} ${utilyPackages} ${addOptions}`;
+      console.log(command);
+      await asyncExec(command).then(console.log).catch(console.log);
+      genFile(LintFiles.eslintrc);
+      genFile(LintFiles.prettierrc);
       genFile(LintFiles.tsconfig);
-      console.log(tCommand);
-      await asyncExec(tCommand).then(console.log).catch(console.log);
       if (exists(join(process.cwd(), 'package.json'))) {
         const rawJson = readFileSync('package.json', 'utf-8');
         const pkgJson: PackageJson = JSON.parse(rawJson);
         pkgJson.scripts.start = start;
-        pkgJson.main = 'src/index.ts';
+        pkgJson.scripts.prebuild = prebuild;
+        pkgJson.main = main;
+        writeFileSync(
+          join(process.cwd(), 'package.json'),
+          JSON.stringify(pkgJson),
+        );
       }
     }
   },
