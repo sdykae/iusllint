@@ -3,7 +3,7 @@
     "iusllint": "dist/index.js"
   },
   "name": "iusllint",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Install common eslint prettier dependencies",
   "main": "src/index.ts",
   "repository": "https://github.com/iuslkae/iusllint.git",
