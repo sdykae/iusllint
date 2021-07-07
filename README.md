@@ -17,6 +17,10 @@ Generate typescript config file and install TYPESCRIPT and Dev Node THINGS
 ```
 iusllint --ts
 ```
+Generate typescript config file and install TYPESCRIPT and Dev Node THINGS and configure package.json: main, start script
+```
+iusllint --tsc
+```
 
 
 ## 🌻 IUSLLINT INSTALLS 6 DEV DEPENDENCIES TO YOUR CURRENT NPM PROJECT

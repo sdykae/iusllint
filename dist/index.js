@@ -25,6 +25,8 @@ var LintFiles;
 })(LintFiles || (LintFiles = {}));
 const command = `yarn add -D eslint eslint-config-prettier eslint-plugin-prettier prettier @typescript-eslint/parser @typescript-eslint/eslint-plugin -E`;
 const tCommand = `yarn add -D typescript ttypescript ts-node nodemon ts-transformer-keys @types/node -E`;
+const start = `nodemon --watch \"src/**\" --ext \"ts,json,env\" --ignore \"src/**/*.spec.ts\" --exec \"ts-node src/index.ts\"`;
+const main = 'src/index.ts';
 const genFile = (file) => {
     if (!exists(path_1.join(process.cwd(), file))) {
         try {
@@ -47,6 +49,11 @@ const argv = yargs.command('$0', 'the default command', (yargs) => {
             describe: 'generate aditional standard tsconfig.json and installs basic typescript dev env',
             type: 'boolean',
         },
+        tsc: {
+            alias: 'tsdevfull',
+            describe: 'generate aditional standard tsconfig.json and installs basic typescript dev env and sets pkg.json.start',
+            type: 'boolean',
+        },
     });
 }, async (argv) => {
     console.log(command);
@@ -60,6 +67,17 @@ const argv = yargs.command('$0', 'the default command', (yargs) => {
         genFile(LintFiles.tsconfig);
         console.log(tCommand);
         await asyncExec(tCommand).then(console.log).catch(console.log);
+    }
+    if (argv.tsc) {
+        genFile(LintFiles.tsconfig);
+        console.log(tCommand);
+        await asyncExec(tCommand).then(console.log).catch(console.log);
+        if (exists(path_1.join(process.cwd(), 'package.json'))) {
+            const rawJson = fs_1.readFileSync('package.json', 'utf-8');
+            const pkgJson = JSON.parse(rawJson);
+            pkgJson.scripts.start = start;
+            pkgJson.main = 'src/index.ts';
+        }
     }
 }).argv;
 //# sourceMappingURL=index.js.map
