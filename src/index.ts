@@ -22,7 +22,7 @@ const exists = (path: PathLike): boolean => {
   }
 };
 enum LintFiles {
-  eslintrc = '.eslintrc',
+  eslintrc = '.eslintrc.js',
   prettierrc = '.prettierrc',
   tsconfig = 'tsconfig.json',
 }
@@ -36,6 +36,7 @@ const addOptions = `-E`;
 const start = `nodemon --watch \"src/**\" --ext \"ts,json,env\" --ignore \"src/**/*.spec.ts\" --exec \"ts-node src/index.ts\"`;
 const main = 'src/index.ts';
 const prebuild = 'rimraf dist';
+const build = 'ttsc';
 
 const genFile = (file: LintFiles): void => {
   if (!exists(join(process.cwd(), file))) {
@@ -113,6 +114,7 @@ const argv = yargs.command(
         }
         pkgJson.scripts.start = start;
         pkgJson.scripts.prebuild = prebuild;
+        pkgJson.scripts.build = build;
         pkgJson.main = main;
         writeFileSync(
           join(process.cwd(), 'package.json'),

@@ -19,7 +19,7 @@ const exists = (path) => {
 };
 var LintFiles;
 (function (LintFiles) {
-    LintFiles["eslintrc"] = ".eslintrc";
+    LintFiles["eslintrc"] = ".eslintrc.js";
     LintFiles["prettierrc"] = ".prettierrc";
     LintFiles["tsconfig"] = "tsconfig.json";
 })(LintFiles || (LintFiles = {}));
@@ -31,6 +31,7 @@ const addOptions = `-E`;
 const start = `nodemon --watch \"src/**\" --ext \"ts,json,env\" --ignore \"src/**/*.spec.ts\" --exec \"ts-node src/index.ts\"`;
 const main = 'src/index.ts';
 const prebuild = 'rimraf dist';
+const build = 'ttsc';
 const genFile = (file) => {
     if (!exists(path_1.join(process.cwd(), file))) {
         try {
@@ -98,6 +99,7 @@ const argv = yargs.command('$0', 'the default command', (yargs) => {
             }
             pkgJson.scripts.start = start;
             pkgJson.scripts.prebuild = prebuild;
+            pkgJson.scripts.build = build;
             pkgJson.main = main;
             fs_1.writeFileSync(path_1.join(process.cwd(), 'package.json'), JSON.stringify(pkgJson, null, 2));
         }
