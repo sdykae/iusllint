@@ -16,12 +16,13 @@
     "incremental": true,
     "allowJs": false,
     "strict": true,
-    "forceConsistentCasingInFileNames":true,
+    "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "downlevelIteration": true,
     "moduleResolution": "node",
     "importHelpers": true,
+    "esModuleInterop": true,
     "plugins": [
       {
         "transform": "ts-transformer-keys/transformer"
