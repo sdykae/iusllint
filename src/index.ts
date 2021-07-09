@@ -28,12 +28,12 @@ enum LintFiles {
 }
 
 const addD = `yarn add -D`;
-const add = `yarn add -D`;
+const add = `yarn add`;
 const lintPackages = `eslint eslint-config-prettier eslint-plugin-prettier prettier @typescript-eslint/parser @typescript-eslint/eslint-plugin`;
 const typescriptDevPackages = `typescript ttypescript ts-node nodemon ts-transformer-keys @types/node`;
 const utilyPackages = `rimraf`;
 const addOptions = `-E`;
-const requiredPackages = `ts-lib`;
+const requiredPackages = `tslib`;
 
 const start = `nodemon --watch \"src/**\" --ext \"ts,json,env\" --ignore \"src/**/*.spec.ts\" --exec \"ts-node src/index.ts\"`;
 const main = 'src/index.ts';
