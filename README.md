@@ -1,29 +1,37 @@
 # SHORT ONELINER FOR eslint prettier dependencies
 
 ## ⭐ USAGE
+
 ```
 yarn dlx iusllint
 ```
+
 ```
 npx iusllint
 ```
 
 ## 📺 Options
+
 Generate typescript config file
+
 ```
 iusllint --t
 ```
+
 Generate typescript config file and install TYPESCRIPT and Dev Node THINGS
+
 ```
 iusllint --ts
 ```
+
 Generate typescript config file and install TYPESCRIPT and Dev Node THINGS and configure package.json: main, start script, prebuild and installs utilities.
+
 ```
 iusllint --tsc
 ```
 
-
 ## 🌻 IUSLLINT INSTALLS 6 DEV DEPENDENCIES TO YOUR CURRENT NPM PROJECT
+
 ```
 "devDependencies": {
   "@typescript-eslint/eslint-plugin": "4.28.0",
@@ -35,6 +43,16 @@ iusllint --tsc
 }
 ```
 
+## 🌻 IUSLLINT INSTALLS 1 DEPENDENCY TO YOUR CURRENT NPM PROJECT (REQUIRED IF TSCONFIG `importHelpers`)
+
+Redusces ts -> js generated code.
+- Practice from angular project.
+
+```
+  "dependencies": {
+    "tslib": "2.3.0"
+  }
+```
 
 # 🔫USLLINT PROJECT USES 12 DEV PACKAGES AND 1 UTILITY
 
@@ -45,6 +63,7 @@ iusllint --tsc
 ```
 yarn add -D typescript ttypescript ts-node nodemon ts-transformer-keys @types/node -E
 ```
+
 ### If --ts used, you could use the ts dev env like this:
 
 ```json
@@ -70,6 +89,7 @@ yarn add -D rimraf -E
 ```
 yarn add yargs -E
 ```
+
 ```
 yarn add -D @types/yargs -E
 ```

@@ -28,10 +28,12 @@ enum LintFiles {
 }
 
 const addD = `yarn add -D`;
+const add = `yarn add -D`;
 const lintPackages = `eslint eslint-config-prettier eslint-plugin-prettier prettier @typescript-eslint/parser @typescript-eslint/eslint-plugin`;
 const typescriptDevPackages = `typescript ttypescript ts-node nodemon ts-transformer-keys @types/node`;
 const utilyPackages = `rimraf`;
 const addOptions = `-E`;
+const requiredPackages = `ts-lib`;
 
 const start = `nodemon --watch \"src/**\" --ext \"ts,json,env\" --ignore \"src/**/*.spec.ts\" --exec \"ts-node src/index.ts\"`;
 const main = 'src/index.ts';
@@ -85,24 +87,33 @@ const argv = yargs.command(
     }
     if (argv.t) {
       const command = `${addD} ${lintPackages} ${addOptions}`;
+      const reqCommand = `${add} ${requiredPackages} ${addOptions}`;
       console.log(command);
       await asyncExec(command).then(console.log).catch(console.log);
+      console.log(reqCommand);
+      await asyncExec(reqCommand).then(console.log).catch(console.log);
       genFile(LintFiles.eslintrc);
       genFile(LintFiles.prettierrc);
       genFile(LintFiles.tsconfig);
     }
     if (argv.ts) {
       const command = `${addD} ${lintPackages} ${typescriptDevPackages} ${addOptions}`;
+      const reqCommand = `${add} ${requiredPackages} ${addOptions}`;
       console.log(command);
       await asyncExec(command).then(console.log).catch(console.log);
+      console.log(reqCommand);
+      await asyncExec(reqCommand).then(console.log).catch(console.log);
       genFile(LintFiles.eslintrc);
       genFile(LintFiles.prettierrc);
       genFile(LintFiles.tsconfig);
     }
     if (argv.tsc) {
       const command = `${addD} ${lintPackages} ${typescriptDevPackages} ${utilyPackages} ${addOptions}`;
+      const reqCommand = `${add} ${requiredPackages} ${addOptions}`;
       console.log(command);
       await asyncExec(command).then(console.log).catch(console.log);
+      console.log(reqCommand);
+      await asyncExec(reqCommand).then(console.log).catch(console.log);
       genFile(LintFiles.eslintrc);
       genFile(LintFiles.prettierrc);
       genFile(LintFiles.tsconfig);
