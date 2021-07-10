@@ -3,7 +3,7 @@
     "iusllint": "dist/index.js"
   },
   "name": "iusllint",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Install common eslint prettier dependencies",
   "main": "src/index.ts",
   "repository": "https://github.com/iuslkae/iusllint.git",
@@ -35,5 +35,6 @@
   "dependencies": {
     "tslib": "2.3.0",
     "yargs": "17.0.1"
-  }
+  },
+  "keywords": ["iusllint","oneline installer","prettier","eslint","typescript","prettier eslint","eslintconfig","eslint-plugin","eslintplugin","typescript"]
 }
