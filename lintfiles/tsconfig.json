@@ -23,6 +23,7 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "esModuleInterop": true,
+    "resolveJsonModule": true,
     "plugins": [
       {
         "transform": "ts-transformer-keys/transformer"
